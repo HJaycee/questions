@@ -19,10 +19,10 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     NSMutableAttributedString *attrString = ({
-        // 文字
+        // words
         NSAttributedString *leftString = [[NSAttributedString alloc] initWithString:@"好" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:10]}];
         
-        // 图片
+        // image
         NSAttributedString *attachString = ({
             UIImage *image = [UIImage imageNamed:@"项目标签"];
             NSTextAttachment *attach = [NSTextAttachment new];
@@ -34,14 +34,14 @@
         NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithAttributedString:leftString];
         [attrString appendAttributedString:attachString];
         
-        // 设置行高
+        // set line-height
         NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
         style.maximumLineHeight = 22.5;
         style.minimumLineHeight = 22.5;
         
         [attrString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, attrString.length)];
         
-        // 设置baseline=0
+        // set baselineOffset
         [attrString addAttribute:NSBaselineOffsetAttributeName value:@0 range:NSMakeRange(0, attrString.length)];
         
         attrString;
